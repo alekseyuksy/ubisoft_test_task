@@ -13,7 +13,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
     ]
 });
 
-$.getJSON("/public/revenue", function(chartData) {
+$.getJSON("/revenue", function(chartData) {
     for(var i = 0; i < chartData.items.length; i++){
         var timeStamp = chartData.items[i].timestamp;
         dps.push({
@@ -71,7 +71,7 @@ $.getJSON("/public/revenue", function(chartData) {
 });
 
 
-$.getJSON("/public/retention", function(chartData) {
+$.getJSON("/retention", function(chartData) {
     let labels = [];
     let series = [];
 
