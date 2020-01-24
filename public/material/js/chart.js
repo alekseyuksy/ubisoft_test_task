@@ -93,4 +93,3 @@ $.getJSON("/retention", function(chartData) {
         }
     });
 });
-

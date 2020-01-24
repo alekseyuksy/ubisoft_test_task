@@ -31,6 +31,17 @@
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">{{ __('Key') }}</label>
+                  <div class="col-sm-7">
+                    <div class="form-group{{ $errors->has('key') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('key') ? ' is-invalid' : '' }}" name="key" id="input-key" type="text" placeholder="{{ __('Name') }}" value="{{ old('key', $event->key) }}" required="true" aria-required="true"/>
+                      @if ($errors->has('key'))
+                        <span id="key-error" class="error text-danger" for="input-key">{{ $errors->first('key') }}</span>
+                      @endif
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>

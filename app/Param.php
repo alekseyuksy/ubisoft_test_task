@@ -13,6 +13,7 @@ class Param extends \Jenssegers\Mongodb\Eloquent\Model {
     protected $fillable = [
         'title',
         'type',
+        'key',
     ];
 
     public static function getTypes()

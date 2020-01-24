@@ -33,7 +33,10 @@
                                 <table class="table">
                                     <thead class=" text-primary">
                                     <th>
-                                        {{ __('Title') }}
+                                        {{ __('Event') }}
+                                    </th>
+                                    <th>
+                                        {{ __('User') }}
                                     </th>
                                     <th>
                                         {{ __('Creation date') }}
@@ -46,7 +49,10 @@
                                     @foreach($actions as $action)
                                         <tr>
                                             <td>
-                                                {{ $action->title }}
+                                                {{ \App\Event::getEventsArray()[$action->event] }}
+                                            </td>
+                                            <td>
+                                                {{ \App\User::getUsersArray()[$action->user] }}
                                             </td>
                                             <td>
                                                 {{ $action->created_at->format('Y-m-d') }}

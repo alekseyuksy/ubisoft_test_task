@@ -29,9 +29,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        $games = Game::getGamesByIdTitle();
-
-        return view('events.create', compact('games'));
+        return view('events.create');
     }
 
     /**

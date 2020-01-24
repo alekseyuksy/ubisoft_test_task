@@ -23,8 +23,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', 'HomeController@index')->name('home');
+
     Route::get('/revenue', 'ActionController@revenue')->name('revenue');
     Route::get('/retention', 'ActionController@retention')->name('retention');
+    Route::get('/users-chart', 'ActionController@usersChart')->name('users-chart');
+
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);

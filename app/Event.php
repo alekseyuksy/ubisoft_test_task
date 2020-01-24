@@ -3,6 +3,11 @@ namespace App;
 
 class Event extends \Jenssegers\Mongodb\Eloquent\Model {
 
+    public   $rules = [
+        'key' => 'required|unique:events',
+    ];
+
+
     /**
      * The attributes that are mass assignable.
      *

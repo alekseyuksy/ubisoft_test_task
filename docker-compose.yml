@@ -1,22 +1,36 @@
-version: '3.3'
-
+version: '2'
 services:
-  web:
-    image: pablofmorales/apache-php7
-    container_name: web
-    ports:
-      - "80:80"
+  # The Application
+  app:
+    build:
+      context: ./
+      args:
+        - WITH_XDEBUG=false
+      dockerfile: app.dockerfile
+    working_dir: /var/www
     volumes:
-      - ./:/var/www/html
-      - ./apache.conf:/etc/apache2/sites-enabled/myproject-web.conf
-      - ./var/log:/var/log/apache2
-    links:
-      - mongodb
-  mongodb:
+      - ./:/var/www
+    environment:
+      - "PHP_IDE_CONFIG=serverName=docker"
+    env_file:
+      - .env
+
+  # The Web Server
+  web:
+    build:
+      context: ./
+      dockerfile: web.dockerfile
+      args:
+        - APP_ENV=develop
+    working_dir: /var/www
+    volumes_from:
+      - app
+    ports:
+      - 80:80
+  database:
     container_name: mongodb
     image: mongo:latest
     ports:
       - "27017:27017"
     env_file:
       - .env
-

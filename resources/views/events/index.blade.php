@@ -36,6 +36,9 @@
                                         {{ __('Title') }}
                                     </th>
                                     <th>
+                                        {{ __('Key') }}
+                                    </th>
+                                    <th>
                                         {{ __('Creation date') }}
                                     </th>
                                     <th class="text-right">
@@ -47,6 +50,9 @@
                                         <tr>
                                             <td>
                                                 {{ $event->title }}
+                                            </td>
+                                            <td>
+                                                {{ $event->key }}
                                             </td>
                                             <td>
                                                 {{ $event->created_at->format('Y-m-d') }}

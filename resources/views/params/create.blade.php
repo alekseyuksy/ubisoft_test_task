@@ -29,9 +29,28 @@
                                                    name="title" id="input-title" type="text"
                                                    placeholder="{{ __('title') }}" value="{{ old('title') }}"
                                                    required="true" aria-required="true"/>
-                                            @if ($errors->has('tut'))
+                                            @if ($errors->has('title'))
                                                 <span id="title-error" class="error text-danger"
                                                       for="input-title">{{ $errors->first('title') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('Key') }}</label>
+                                    <div class="col-sm-7">
+                                        <div class="form-group{{ $errors->has('key_id') ? ' has-danger' : '' }}">
+                                            <select class="form-control{{ $errors->has('key_id') ? ' is-invalid' : '' }}"
+                                                    name="key_id" id="input-key_id" key="text"
+                                                    placeholder="{{ __('key') }}" value="{{ old('key_id') }}"
+                                                    required="true" aria-required="true">
+                                                @foreach(\App\Param::getTypes() as $id => $key)
+                                                    <option value="{{ $id }}">{{ $key }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('key'))
+                                                <span id="key_id-error" class="error text-danger"
+                                                      for="input-key_id">{{ $errors->first('key_id') }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -48,7 +67,7 @@
                                                     <option value="{{ $id }}">{{ $type }}</option>
                                                 @endforeach
                                             </select>
-                                            @if ($errors->has('tut'))
+                                            @if ($errors->has('type_id'))
                                                 <span id="type_id-error" class="error text-danger"
                                                       for="input-type_id">{{ $errors->first('type_id') }}</span>
                                             @endif

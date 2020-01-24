@@ -29,8 +29,8 @@ class EventRequest extends FormRequest
             'title' => [
                 'required', 'min:3'
             ],
-            'game_id' => [
-                'required',
+            'key' => [
+                'required', 'unique:events'
             ]
         ];
     }

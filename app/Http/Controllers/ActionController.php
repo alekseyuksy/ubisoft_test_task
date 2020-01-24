@@ -118,4 +118,18 @@ class ActionController extends Controller
 
         return json_encode($dates);
     }
+
+    public function usersChart(){
+        $users = User::groupBy('device')->get();
+        $info = [];
+
+        foreach ($users as $user) {
+            $info[] = [
+                'label' => $user->device,
+                'value' => User::where('device', $user->device)->count()
+            ];
+        }
+
+        return json_encode($info);
+    }
 }

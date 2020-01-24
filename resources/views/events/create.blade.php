@@ -29,9 +29,24 @@
                                                    name="title" id="input-title" type="text"
                                                    placeholder="{{ __('title') }}" value="{{ old('title') }}"
                                                    required="true" aria-required="true"/>
-                                            @if ($errors->has('tut'))
+                                            @if ($errors->has('title'))
                                                 <span id="title-error" class="error text-danger"
                                                       for="input-title">{{ $errors->first('title') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('Key') }}</label>
+                                    <div class="col-sm-7">
+                                        <div class="form-group{{ $errors->has('key') ? ' has-danger' : '' }}">
+                                            <input class="form-control{{ $errors->has('key') ? ' is-invalid' : '' }}"
+                                                   name="key" id="input-key" type="text"
+                                                   placeholder="{{ __('key') }}" value="{{ old('key') }}"
+                                                   required="true" aria-required="true"/>
+                                            @if ($errors->has('key'))
+                                                <span id="key-error" class="error text-danger"
+                                                      for="input-key">{{ $errors->first('key') }}</span>
                                             @endif
                                         </div>
                                     </div>
