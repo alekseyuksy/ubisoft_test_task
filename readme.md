@@ -4,6 +4,9 @@ Please do next commands:
 docker-compose up --build
 
 docker-compose exec app php artisan migrate
+
+
+
 docker-compose exec app php artisan db:seed
 
 ## SignIn
